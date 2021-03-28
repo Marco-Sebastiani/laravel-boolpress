@@ -2,14 +2,14 @@
 @section('title','elenco post')
     
 @section('content')
-<div class="container">
+<div class="container-fluid d-flex justify-content-center flex-wrap">
     @foreach ($posts as $post)
-        <div class="card  mb-2 bg-dark text-light text-center shadow">
+        <div class="card  m-3 bg-dark text-light text-center shadow" style="width: 35%;">
             <div class="card-header">
                 {{$post->title}}
             </div>
             <div class="card-body">
-                <p class="lead text-justify">{{$post->content}}</p>
+                <p class="lead text-justify text-truncate">{{$post->content}}</p>
                 <p class="d-flex justify-content-around">
                     <em>
                         <i class="fas fa-info-circle"></i>
