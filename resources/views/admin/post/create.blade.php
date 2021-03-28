@@ -26,10 +26,14 @@
                         <label for="inputBody">Contenuto del post</label>
                         <textarea class="form-control" name="content" rows="10" id="inputBody"></textarea>
                     </div>
-        {{-- 
+                    @foreach ($tags as $tag)
+                        
                     <div class="form-group form-check">
-                        <label class="form-check-label" for="exampleCheck1">Insert</label>
-                    </div> --}}
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="tags[]" value="{{$tag->id}}">
+                        <label class="form-check-label" for="exampleCheck1">{{$tag->name}}</label>
+                    </div>
+                    @endforeach
+
                     <button type="submit" class="btn btn-primary">Edit</button>
                 </form>
             </div>
