@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Lead;
+
+use App\Mail\SendNewMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -27,6 +30,7 @@ class HomeController extends Controller
         $newLead= new Lead();
         $newLead->fill($data);
         $newLead->save();
+        Mail::to('info@ciao.com')->send(new SendNewMail($newLead));
         return redirect()->route('guest.contatti.inviato')->with('status', 'Messaggio inviato correttamente');
     }
 
