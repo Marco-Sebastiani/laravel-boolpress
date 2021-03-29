@@ -17,7 +17,8 @@ class PostSeeder extends Seeder
     {
         for($i=0; $i<10; $i++){
             $newPost = new Post();
-            $userCount = count(User::all()->toArray());
+            // $userCount = count(User::all()->toArray());
+            $userCount = User::count();
             $newPost->user_id = rand(1,$userCount);
 
 
