@@ -14,6 +14,18 @@
                         <label for="title">Titolo del post</label>
                         <input type="text" class="form-control" name="title" id="title" value="{{$post->title}}">
                     </div>
+                    @if ($post->cover)
+                        <p>Immagine inserita</p>
+                        <img class="w-100" src="{{asset('storage/'.$post->cover)}}" alt="{{$post->title}}">
+
+                        @else
+                            <p><strong>Immagine non presente</strong></p>
+                    @endif
+
+                    <div class="form-group">
+                        <label for="image">Carica l'immagine</label>
+                        <input type="file" class="form-control-file" id="image" name="image">
+                    </div>
         
                     <div class="form-group">
                         <label for="content">Contenuto del post</label>

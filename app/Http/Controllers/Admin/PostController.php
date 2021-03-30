@@ -58,6 +58,7 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|unique:posts|max:100',
             'content' => 'required',
+            'image' => 'min:1|max:2048'
         ]);
         $newPost = new Post();
         $newPost->user_id = $idUser;
@@ -123,6 +124,21 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $data =$request->all();
+
+
+
+        if($data['title'] != $post->title){
+            $slug = Str::slug($data['title']);
+            $data['slug'] = $slug;
+        }
+
+        if(array_key_exists('image', $data)){
+            $cover_path = Storage::put('post_covers', $data['image']);
+            $data['cover']=$cover_path;
+        }
+
+
+
         $post->update($data);
         if(array_key_exists('tags', $data)){
             $post->tags()->sync($data['tags']);
