@@ -15,12 +15,16 @@
                         </ul>
                     </div>
                 @endif
-                <form method="post" action="{{route('post.store')}}">
+                <form method="post" action="{{route('post.store')}}" enctype="multipart/form-data">
                     @method('POST')
                     @csrf
                     <div class="form-group">
                         <label for="title">Titolo del post</label>
                         <input type="text" class="form-control" name="title" id="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Carica l'immagine</label>
+                        <input type="file" class="form-control-file" id="image" name="image">
                     </div>
                     <div class="form-group">
                         <label for="inputBody">Contenuto del post</label>

@@ -86,6 +86,10 @@
                 <div class="links">
                     <a href="{{route('guest.posts.index')}}">Blog</a>
                     <a href="{{ url('/admin') }}">ADMIN</a>
+                    <a href="{{route('guest.contatti')}}">Contacts</a>
+
+
+                    
                 </div>
             </div>
         </div>

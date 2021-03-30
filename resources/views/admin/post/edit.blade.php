@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-5">
 
-                <form method="post" action="{{route('post.update', $post)}}">
+                <form method="post" action="{{route('post.update', $post)}}" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="form-group">

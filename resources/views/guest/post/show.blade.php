@@ -20,6 +20,10 @@
                     </span>
                 </p>
             </div>
+            <div class="card-footer">
+
+                <img class="w-25" src="{{asset('storage/'.$post->cover)}}" alt="{{$post->title}}">
+            </div>
         </div>
     </div>
 @endsection

@@ -10,7 +10,7 @@
                     <th>ID</th>
                     <th>Title</th>
                     <th>User id</th>
-                    <th>Created At</th>
+                    <th>immagine</th>
                     <th>Update At</th>
                     <th>Body</th>
 
@@ -21,7 +21,7 @@
                     <th scope="row">{{$post->id}}</th>
                     <td>{{$post->title}}</td>
                     <td>{{$post->user->name}}</td>
-                    <td>{{$post->created_at}}</td>
+                    <td class="w-25"><img class="w-100" src="{{asset('storage/'.$post->cover)}}" alt="{{$post->title}}"></td>
                     <td>{{$post->updated_at}}</td>
                     <td class="text-justify w-25">{{$post->content}}</td>
 

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
 use App\Post;
 use App\Tag;
 
@@ -61,8 +63,13 @@ class PostController extends Controller
         $newPost->user_id = $idUser;
         $newPost->slug = Str::slug($data['title']);
         $newPost->fill($data);
-        $newPost->save();
         
+        $cover_path = Storage::put('post_covers', $data['image']);
+        // dd($cover_path);
+        $data['cover']=$cover_path;
+        $newPost->cover = $data['cover'];
+        $newPost->save();
+
         if(array_key_exists('tags', $data)){
             $newPost->tags()->sync($data['tags']);
         }
